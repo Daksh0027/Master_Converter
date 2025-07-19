@@ -1,0 +1,24 @@
+# Technical Architecture  
+- **System components**: React frontend, Node.js backend with FFmpeg, temporary file storage
+- **Data models**: UploadedFile { filename, size, type, uploadTimestamp }, ConversionJob { jobId, status, inputFilePath, outputFilePath, createdAt, completedAt }
+- **APIs and integrations**: POST /api/convert (accepts MP4, returns MP3), optional cloud storage
+- **Infrastructure requirements**: Node.js server, FFmpeg, disk space for temp files, HTTPS
+
+# Development Roadmap  
+- **MVP requirements**: Frontend upload/conversion/download, backend conversion, error handling
+- **Future enhancements**: Support more formats, user accounts, batch conversion, email notifications, progress bar, cloud storage
+
+# Logical Dependency Chain
+- Build backend API for upload/conversion (foundation)
+- Build frontend for upload/trigger/download
+- Add status feedback and error handling
+- (Optional) Add enhancements (accounts, batch, cloud)
+
+# Risks and Mitigations  
+- Technical: Large files, timeouts (mitigate with limits, streaming)
+- MVP scope: Feature creep (mitigate by clear MVP definition)
+- Resources: Server/storage load (mitigate with cleanup, monitoring)
+
+# Appendix  
+- Research: FFmpeg for conversion
+- Specs: React frontend, Node.js/Express backend, 100MB file limit (configurable) 
